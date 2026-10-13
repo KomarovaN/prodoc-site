@@ -1,4 +1,4 @@
-baseURL = 'https://komarovan.github.io/prodoc/'
+baseURL = '/'
 locale = 'ru-RU'
 title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
