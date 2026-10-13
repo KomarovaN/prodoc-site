@@ -1,3 +1,4 @@
+baseURL = 'https://github.com/KomarovaN/prodoc-site'
 locale = 'ru-RU'
 title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
