@@ -2,8 +2,5 @@ baseURL = 'https://komarovan.github.io/prodoc-site/'
 locale = 'ru-RU'
 title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
+BookPortableLinks = true
 enableRobotsTXT = false
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
