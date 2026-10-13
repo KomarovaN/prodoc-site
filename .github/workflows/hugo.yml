@@ -71,8 +71,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-<<<<<<< HEAD
         uses: actions/deploy-pages@v5
-=======
-        uses: actions/deploy-pages@v5
->>>>>>> d5a58c032c4cdf609a3439240faa230a6d73607f
