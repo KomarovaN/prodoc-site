@@ -4,5 +4,3 @@ title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
 BookPortableLinks = true
 enableRobotsTXT = false
-[markup.goldmark.renderHooks.image]
-  useEmbedded = "always"
