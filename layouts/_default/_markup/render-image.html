@@ -5,18 +5,25 @@
 {{ end }}
 
 {{/* Определяем итоговый класс для тега img */}}
-{{ $imgClass := "" }}
-{{ if not (in $classes "no-frame") }}
-  {{ $imgClass = "framed-image" }}
-  {{ if $classes }}
-    {{ $imgClass = printf "%s %s" $imgClass $classes }}
-  {{ end }}
-{{ else }}
-  {{ $imgClass = $classes }}
+{{/* $imgClass := "" */}}
+{{/* if not (in $classes "no-frame") */}}
+  {{/* $imgClass = "framed-image" */}}
+  {{/* if $classes */}}
+    {{/* $imgClass = printf "%s %s" $imgClass $classes */}}
+  {{/* end */}}
+{{/* else */}}
+  {{/* $imgClass = $classes */}}
+{{/* end */}}
+
+{{/* Проверяем, передано ли слово no-frame во всплывающей подсказке */}}
+{{ $imgClass := "framed-image" }}
+{{ if eq .Title "no-frame" }}
+  {{ $imgClass = "" }}
 {{ end }}
 
 <img src="{{ .Destination | safeURL | relURL }}"
   {{- with $imgClass }} class="{{ . }}"{{ end -}}
   {{- with .PlainText }} alt="{{ . }}"{{ end -}}
-  {{- with .Title }} title="{{ . }}"{{ end -}}
+  {{- if and .Title (ne .Title "no-frame") }} title="{{ .Title }}"{{ end -}}
 >
+ {{/*- with .Title }} title="{{ . }}"{{ end -*/}}
