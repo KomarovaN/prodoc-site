@@ -1,0 +1,36 @@
+/* Стили для картинок с рамкой (применяется ко всем картинкам по умолчанию) */
+.markdown img.framed-image {
+  max-width: 100%;  /* Сжимает огромные картинки до ширины колонки */
+  height: auto;     /* Сохраняет пропорции */
+  display: block;
+  margin: 1.5rem auto; /* Центрирует и делает отступы от текста */
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  padding: 0.5rem;  /* Отступ между рисунком и рамкой */
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.markdown img.framed-image:hover {
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Сброс стилей для картинок с классом .no-frame */
+.markdown img.no-frame {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  vertical-align: middle;
+}
+
+/* Поддержка темной темы */
+@media (prefers-color-scheme: dark) {
+  .markdown img.framed-image {
+    background-color: #1e1e1e;
+    border-color: #444c56;
+  }
+}
