@@ -8,6 +8,3 @@ enableRobotsTXT = false
   [markup.goldmark]
     [markup.goldmark.parser]
       wrapStandaloneImageWithinParagraph = false # Отключает оборачивание картинки в тег <p>
-    [markup.goldmark.parser.attribute]
-      block = true  # Разрешает атрибуты для блоков
-      title = true  # Разрешает атрибуты для встроенных элементов (включая картинки)
