@@ -4,12 +4,10 @@ title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
 enableRobotsTXT = false
 
-[markup.goldmark.parser]
-  # Это ключевая настройка! Она запрещает оборачивать одиночные картинки в <p>,
-  # позволяя атрибутам применяться напрямую к картинке.
-  wrapStandAloneImageWithinParagraph = false
-
-[markup.goldmark.parser.attribute]
-  # Разрешает использовать атрибуты (классы, id) в Markdown
-  block = true
-  title = true
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandaloneImageWithinParagraph = false # Отключает оборачивание картинки в тег <p>
+    [markup.goldmark.parser.attribute]
+      block = true  # Разрешает атрибуты для блоков
+      title = true  # Разрешает атрибуты для встроенных элементов (включая картинки)
