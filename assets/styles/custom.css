@@ -3,7 +3,7 @@
   max-width: 100%;  /* Сжимает огромные картинки до ширины колонки */
   height: auto;     /* Сохраняет пропорции */
   display: block;
-  margin: 1.5rem auto; /* Центрирует и делает отступы от текста */
+  /*margin: 1.5rem auto; /* Центрирует и делает отступы от текста */
   border: 1px solid #d1d5da;
   border-radius: 6px;
   padding: 0.5rem;  /* Отступ между рисунком и рамкой */
