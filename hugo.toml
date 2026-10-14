@@ -2,8 +2,8 @@ baseURL = 'https://komarovan.github.io/prodoc-site/'
 locale = 'ru-RU'
 title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
-BookPortableLinks = true
 enableRobotsTXT = false
+
 [markup.goldmark.parser]
   # Это ключевая настройка! Она запрещает оборачивать одиночные картинки в <p>,
   # позволяя атрибутам применяться напрямую к картинке.
