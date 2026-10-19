@@ -3,6 +3,13 @@ locale = 'ru-RU'
 title = 'ЦП ПП ПАСПЕР'
 theme = 'hugo-book'
 enableRobotsTXT = false
+BookToC = true
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
 
 [markup]
   [markup.goldmark]
