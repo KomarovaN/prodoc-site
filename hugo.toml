@@ -6,12 +6,10 @@ enableRobotsTXT = false
 BookToC = true
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      wrapStandaloneImageWithinParagraph = false # Отключает оборачивание картинки в тег <p>
   [markup.tableOfContents]
     startLevel = 1
     endLevel = 3
     ordered = false
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.parser]
-      wrapStandaloneImageWithinParagraph = false # Отключает оборачивание картинки в тег <p>
