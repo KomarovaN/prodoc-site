@@ -1,4 +1,4 @@
-# Публикация статического сайта, созданного с помощью Hugo по схеме hugo-book
+## Публикация статического сайта, созданного с помощью Hugo по схеме hugo-book
 
 Статический сайт содержит документацию по проекту Паспер:
 - общие сведения о ЦП ПП Паспер;
@@ -23,21 +23,16 @@
 - скачать расширенный релиз hugo по ссылке https://github.com/gohugoio/hugo/releases - например: hugo_extended_0.167.0_windows-amd64.zip,
 - распаковать скачанный архиы в подкаиалог bin,
 - в командной строке выполнить:
-   
-    set PATH=%PATH%;C:\Hugo\bin,
+   ```set PATH=%PATH%;C:\Hugo\bin```,
 - в командной строке выполнить (описание всех команд - https://gohugo.io/commands/hugo/): 
-  
-    hugo version
-
+   ```hugo version```
   в выводе обязательно должно быть слово extended - например: hugo v0.163.3-...+extended windows/amd64.
 2. Создать структуру проекта сайта:
 - в любой папке создать папку проекта сайта - например: prodoc,
 - в командной строке перейти в созданную папку: 
-  
-     cd .../prodoc (... - путь к папке)
+   ```cd .../prodoc (... - путь к папке)```
 - в командной строке выполнить: 
-  
-     hugo new site . --force 
+   ```hugo new site . --force``` 
 
   создает стандартную структуру Hugo-сайта прямо в текущей папке (.), --force разрешает сделать это в уже существующей (но пустой) папке,
 
@@ -45,17 +40,16 @@
 3. Инициализировать git в папке проекта сайта:
 - в проводнике по правой кнопке выбрать "Open Git Bash here",\
 - выполнить:
-  
-    git init
-
-    git add .
+  ```
+  git init
+  git add .
+  ```
 4. Добавить тему в проект сайта как submodule:
 - выбрать тему из списка по ссылке https://themes.gohugo.io/,
 - перейти в тему, перейти в репозиторий темы на github по кнопке Download, скопировать ссылку на репозиторий темы в github - 
   https://github.com/alex-shpak/hugo-book, вернуться на страницу темы, запомнить папку из ссылки - themes/hugo-book,
 - в Git Bash выполнить:
-  
-    git submodule add -b main https://github.com/alex-shpak/hugo-book themes/hugo-book
+```git submodule add -b main https://github.com/alex-shpak/hugo-book themes/hugo-book```
 
   -b main - отслеживать ветку main репозитория темы,
 
@@ -63,8 +57,7 @@
 5. Создать структуру папок в content с файлами _index.md. ДЛЯ РАЗНЫХ ТЕМ РАЗНЫЕ ШАБЛОНЫ ФРОНТМАТТЕРА. Надо читать описание для каждой темы
 6. Сборка для продакшена:
 - в командной строке (папка проекта сайта текущая) выполнить:
-  
-    hugo -gc-D --minify
+  ```hugo -gc-D --minify```
 
   -D - включить черновики в сборку (уберите этот флаг, когда захотите публиковать только полностью готовые статьи), 
 
@@ -74,8 +67,7 @@
 
   результат появится в папке public/ - это и есть готовый статичный сайт, который можно заливать на любой хостинг, внутри - обычные HTML/CSS/JS-файлы и картинки,
 - в командной строке выполнить:
-  
-    hugo server -D
+  ```hugo server -D```
 
   запускает внутренний сервер Hugo,
 - скопировать адрес сервера: ...Web server is available at http://localhost:1313/ (bind address 127.0.0.1)...,
@@ -88,8 +80,7 @@
   либо изменить её значение во всех файлах на draft: false,
 - удалить папку public/ целиком вручную перед запуском сборки, чтобы Hugo создал её с нуля;
 - в командной строке (папка проекта сайта текущая) выполнить:
-  
-    hugo --minify,
+  ```hugo --minify```
 
   все файлы и папки, находящиеся внутри папки public/, готовы к отправке на сервер,
 - для классического хостинга (cPanel, ISPmanager, FTP): подключиться к хостингу через FTP-клиент (например, FileZilla)
@@ -97,29 +88,22 @@
 - для Git-платформы (GitHub/GitVerse): настроить CI/CD пайплайн, который будет выполнять команду hugo --minify внутри виртуальной машины 
   и автоматически отправлять содержимое public/ в специальную ветку хостинга (gh-pages или pages).
 8. Настройка CI/CD пайплайн Github:
-- в репозитории на Github настроить права: 
-  
-  Settings (Настройки) -> Actions -> General - 
-  
-    в блоке Actions permissions выбрать пункт Allow all actions and reusable workflows, нажать Save,
-
-    прокрутить страницу в самый низ до раздела Workflow permissions -
-
-      сменить переключатель с Read repository contents and packages permissions на Read and write permissions, 
-
-      поставить галочку Allow GitHub Actions to create and approve pull requests, нажать Save,
+- в репозитории на Github настроить права: Settings (Настройки) -> Actions -> General - 
+    - в блоке Actions permissions выбрать пункт Allow all actions and reusable workflows, нажать Save,
+    - прокрутить страницу в самый низ до раздела Workflow permissions -
+      - сменить переключатель с Read repository contents and packages permissions на Read and write permissions, 
+      - поставить галочку Allow GitHub Actions to create and approve pull requests, нажать Save,
 - в репозитории на Github настроить работу с workflow: Settings ⇒ Pages ⇒ GitHub Actions, выбрать шаблон конфигурации по ссылке browse all workflows, 
   открыть файл yml, скопировать весь код и отменить коммит,
 - в корне локального репозитория создать каталоги .github/workflows (строго маленькими буквами), в  workflows создать файл hugo.yml, 
   вставить в него скопированный код (см. файл hugo.yml в репозитории),
 - убедиться, что текущая локальная ветка в Git действительно называется main,
 - в локальном репозитории выполнить:
-  
+  ```
      git add . 
-
      git commit -m "Init" 
-
      git push -u origin main
+  ```
 - в репозитории на Github отследить выполнение workflow: Activity - последний commit (build+deploy должны пройти без ошибок).
 - в репозитории на Github: Settings ⇒ Pages появится ссылка на сгенерированный статический сайт, перейти по ссылке,
   в новой вкладке откроется главная страница сайта.
